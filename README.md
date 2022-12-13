@@ -1,46 +1,92 @@
-# Getting Started with Create React App
+# Origin Frontend Take-Home Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**IMPORTANT**: you can choose any technology stack to implement this assignment. Using our stack is not a requirement in the selection process - we will consider exclusively the quality of your project (technology and product-wise) to evaluate your work. We've added a project structure in this repository (a buildwith react, redux, jest, styled-components and typescript) to save you time if you want to use it. If you prefer another stack, feel free to use it.
 
-## Available Scripts
+Origin is a platform that helps our customers' employees put their financial lives on track.
 
-In the project directory, you can run:
+One key to financial well-being is planning & saving for your goals. Users can have many saving goals (e.g. go to college or throw a wedding party) and it is our job to help them accomplish it.
 
-### `npm start`
+You will build a piece of our savings feature by creating the savings plan simulation screen.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### The Saving Goal Plan Simulation Screen
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Saving Goal Plan Mockup Desktop](https://github.com/OriginFinancial/frontend-take-home-assignment/blob/master/mockups/saving-goal-plan-desk.png)
 
-### `npm test`
+You will build a screen where the user will simulate saving towards the "Buy a house" savings goal.
+In it, the users choose (i) the value they want to save and (ii) the date they plan to reach the goal.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+When the users change the value of any of the inputs, the monthly deposit value is calculated and displayed to them.
 
-### `npm run build`
+# Development Instructions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Evaluation
+Be aware that Origin will mainly take into consideration the following evaluation criteria:
+* How close your page is to the mockups, both on mobile & desktop;
+* How clean and organized your code is;
+* How good your automated tests are, i.e.: qualitative over quantitative (in case of usage of this base project, feel free to choose between jest or testing library);
+* If you implemented the business rules correctly.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Assets
+You can find the layout mockups here on our Figma project:
+[Layout mockups](https://www.figma.com/file/Axdg0WSJURcxp8Arq3gg9x/Take-Home-Assignment-v2)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Once you have opened the link you must sign up and log in so you can have access to the colors, fonts, margins and assets information.
 
-### `npm run eject`
+#### Money input
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The money input component should:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Allow only numbers
+- Display the value formatted as money (e.g 3500.45 should be 3,500.45)
+- We recommend you name this input as "amount"
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Date input
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The date input component should:
 
-## Learn More
+- Allow only future months
+- When clicking on the arrow buttons it should go up and down month by month
+- On focused, the users should be able to move the months by typing the Left and Right arrow key on the keyboard
+- We recommend you name this input as "reachDate"
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Confirm button
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+You don't need to add any action on the confirmation button
+
+# Delivery Instructions
+
+Don't create a fork, send us the link to your repository and make sure to make it public.
+
+# Usage
+
+This project requires the latest LTS version of NodeJS and you may need to install the yarn as global dependency
+```bash
+npm install -g yarn
+```
+
+After you have cloned this repo and install the yarn, install the dependencies with:
+
+```
+yarn install
+```
+
+You can then start the application running:
+
+```
+yarn start
+```
+
+That's it. Just Access `http://localhost:3000` in your browser.
+
+### Linting and Format
+
+```
+yarn lint
+yarn format
+```
+
+### Testing
+
+```
+yarn test
+```
