@@ -29,6 +29,7 @@
       "components/pages/*": ["components/pages/*"],
 
       "helpers/*": ["helpers/*"],
+      "test/*": ["test/*"],
       "types/*": ["types/*"],
       "widgets/*": ["widgets/*"]
     }
