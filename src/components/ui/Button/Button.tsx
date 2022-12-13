@@ -1,7 +1,17 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 
-const Button: FC = () => {
-	return <div>Button</div>
+import styles from './Button.module.scss'
+
+interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+	children: React.ReactNode
+}
+
+const Button: FC<IButtonProps> = ({ children, ...props }) => {
+	return (
+		<button className={styles.button} {...props}>
+			{children}
+		</button>
+	)
 }
 
 export default Button

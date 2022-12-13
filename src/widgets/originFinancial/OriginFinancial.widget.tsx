@@ -1,5 +1,7 @@
 import { FC } from 'react'
 
+import Button from 'components/ui/Button/Button'
+
 import houseImg from 'assets/icons/buy-a-house.svg'
 
 import styles from './OriginFinancial.module.scss'
@@ -13,6 +15,10 @@ const OriginFinancialWidget: FC = () => {
 					<div>Buy a house</div>
 					<div className={styles.title2}>Saving goal</div>
 				</div>
+			</div>
+
+			<div className={styles.submit}>
+				<Button>Confirm</Button>
 			</div>
 		</div>
 	)
