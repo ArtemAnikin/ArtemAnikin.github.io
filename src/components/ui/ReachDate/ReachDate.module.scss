@@ -1,0 +1,78 @@
+.title{
+  font-family: 'Work Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #1E2A32;
+
+  text-align: start;
+  margin: 0;
+
+}
+.wrapper{
+  width: 192px;
+  background: #FFFFFF;
+  border: 1px solid #E9EEF2;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  height: 56px;
+  align-items: center;
+  position: relative;
+
+  & .date{
+    height: 100%;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+
+
+    & .month, .year{
+      font-family: 'Work Sans', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 150%;
+      text-align: center;
+      color: #1E2A32;
+    }
+
+    & .year{
+      font-weight: 400;
+      color: #708797;
+
+    }
+  }
+
+  & .dateArrowLeft, .dateArrowRight{
+    content: url("../../../assets/arrow.svg");
+    position: absolute;
+    top: calc((56px - 21px) /2);
+    right: 20px;
+    width: 8px;
+    height: 21px;
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  & .dateArrowLeft{
+    content: url("../../../assets/arrow-left.svg");
+    left: 20px;
+  }
+}
+
+@media screen and (max-width: 450px){
+  .wrapper{
+    width: 100%!important;
+  }
+  .month, .year {
+    font-size: 14px !important;
+  }
+}

@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 
 import Amount from 'components/ui/Amount/Amount'
 import Button from 'components/ui/Button/Button'
+import ReachDate from 'components/ui/ReachDate/ReachDate'
 
 import houseImg from 'assets/icons/buy-a-house.svg'
 
@@ -9,6 +10,11 @@ import styles from './OriginFinancial.module.scss'
 
 const OriginFinancialWidget: FC = () => {
 	const [currentPrice, setCurrentPrice] = useState(10)
+	const [month, setMonth] = useState(0)
+
+	const changeNumberOfMonth = (value: number) => {
+		setMonth(month + value)
+	}
 
 	return (
 		<div className={styles.wrapper}>
@@ -23,6 +29,10 @@ const OriginFinancialWidget: FC = () => {
 			<div className={styles.controls}>
 				<div className={styles.totalAmount}>
 					<Amount value={currentPrice} onChangeValue={setCurrentPrice} />
+				</div>
+
+				<div className={styles.reach}>
+					<ReachDate changeNumberOfMonth={changeNumberOfMonth} />
 				</div>
 			</div>
 
