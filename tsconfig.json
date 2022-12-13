@@ -31,7 +31,7 @@
       "config/*": ["config/*"],
       "hooks/*": ["hooks/*"],
       "services/*": ["services/*"],
-      "shared/*": ["shared/*"],
+      "widgets/*": ["widgets/*"],
       "store/*": ["store/*"],
       "utils/*": ["utils/*"],
     }

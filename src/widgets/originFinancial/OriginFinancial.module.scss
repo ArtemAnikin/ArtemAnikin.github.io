@@ -1,0 +1,83 @@
+.wrapper{
+  box-sizing: border-box;
+  margin-top: 24px;
+  max-width: 560px;
+  background-color: #FFFFFF;
+  padding: 40px;
+  color: black;
+
+  & .submit{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  & .header{
+    display: flex;
+  }
+
+  & .title{
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 120%;
+
+    margin-left: 15px;
+
+    & .title2{
+      font-family: 'Work Sans', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #708797;
+
+      text-align: start;
+    }
+  }
+
+  & .controls{
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+
+    & .totalAmount{
+      position: relative;
+      width: 275px;
+    }
+
+    & .reach{
+      position: relative;
+      width: 192px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px){
+  .wrapper{
+    padding: 31px 24px!important;
+  }
+
+  .controls{
+    display: block !important;
+
+    & .totalAmount, .reach{
+      width: 100% !important;
+      & .title{
+        font-size: 12px!important;
+      }
+    }
+
+  }
+
+  .title{
+    margin-top: 5px;
+    font-size: 20px!important;
+
+    & .title2{
+      font-size: 14px!important;
+    }
+  }
+}
+

@@ -1,5 +1,7 @@
 import { FC } from 'react'
 
+import OriginFinancialWidget from 'widgets/originFinancial/OriginFinancial.widget'
+
 import styles from './Main.module.scss'
 
 const Main: FC = () => {
@@ -9,6 +11,7 @@ const Main: FC = () => {
 				<div className={styles.title}>
 					Let&apos;s plan your <strong> saving goal.</strong>
 				</div>
+				<OriginFinancialWidget />
 			</div>
 		</>
 	)

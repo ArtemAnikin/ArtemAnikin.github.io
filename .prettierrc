@@ -12,7 +12,7 @@
     "^pages/(.*)$",
     "^ui/(.*)$",
     "^hooks/(.*)$",
-    "^shared/(.*)$",
+    "^widgets/(.*)$",
     "^helpers/(.*)$",
     "^services/(.*)$",
     "^assets/(.*)$",
