@@ -22,18 +22,15 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
+      "assets/*": ["assets/*"],
+
       "components/*": ["components/*"],
       "components/ui/*": ["components/ui/*"],
       "components/pages/*": ["components/pages/*"],
 
-      "assets/*": ["assets/*"],
-      "interfaces/*": ["interfaces/*"],
-      "config/*": ["config/*"],
-      "hooks/*": ["hooks/*"],
-      "services/*": ["services/*"],
-      "widgets/*": ["widgets/*"],
-      "store/*": ["store/*"],
-      "utils/*": ["utils/*"],
+      "helpers/*": ["helpers/*"],
+      "types/*": ["types/*"],
+      "widgets/*": ["widgets/*"]
     }
   },
   "include": [
