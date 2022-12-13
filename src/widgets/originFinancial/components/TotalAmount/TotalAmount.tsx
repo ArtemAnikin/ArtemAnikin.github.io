@@ -18,7 +18,6 @@ const TotalAmount: FC<ITotalProps> = ({ currentPrice, numberOfMonth }) => {
 
 	const year = currentYear + Math.trunc((currentMonth - 1 + numberOfMonth) / 12)
 
-	console.log(currentPrice)
 	const price = currentPrice / (numberOfMonth + 1)
 
 	return (

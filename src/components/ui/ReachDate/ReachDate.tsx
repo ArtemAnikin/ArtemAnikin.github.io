@@ -7,10 +7,11 @@ import styles from './ReachDate.module.scss'
 
 export interface IReachDateProps
 	extends React.InputHTMLAttributes<HTMLInputElement> {
+	label: string
 	changeNumberOfMonth: (month: number) => void
 }
 
-const ReachDate: FC<IReachDateProps> = ({ changeNumberOfMonth }) => {
+const ReachDate: FC<IReachDateProps> = ({ changeNumberOfMonth, label }) => {
 	const { currentYear, currentMonth } = getCurrentDate()
 
 	const [month, setMonth] = useState(currentMonth)
@@ -38,7 +39,7 @@ const ReachDate: FC<IReachDateProps> = ({ changeNumberOfMonth }) => {
 
 	return (
 		<>
-			<div className={styles.title}>Reach goal by</div>
+			<div className={styles.title}>{label}</div>
 			<div className={styles.wrapper}>
 				<div className={styles.date} data-testid='Reach-date'>
 					<div className={styles.dateArrowLeft} onClick={handleMonthDec}></div>

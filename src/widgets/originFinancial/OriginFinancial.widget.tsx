@@ -30,11 +30,18 @@ const OriginFinancialWidget: FC = () => {
 
 			<div className={styles.controls}>
 				<div className={styles.totalAmount}>
-					<Amount value={currentPrice} onChangeValue={setCurrentPrice} />
+					<Amount
+						label='Total amount'
+						value={currentPrice}
+						onChangeValue={setCurrentPrice}
+					/>
 				</div>
 
 				<div className={styles.reach}>
-					<ReachDate changeNumberOfMonth={changeNumberOfMonth} />
+					<ReachDate
+						label='Reach goal by'
+						changeNumberOfMonth={changeNumberOfMonth}
+					/>
 				</div>
 			</div>
 

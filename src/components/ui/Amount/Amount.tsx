@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 import {
 	priceToNumber,
@@ -13,10 +13,16 @@ import styles from './Amount.module.scss'
 export interface IAmountProps
 	extends React.InputHTMLAttributes<HTMLInputElement> {
 	value: number
+	label: string
 	onChangeValue: (value: number) => void
 }
 
-const Amount: FC<IAmountProps> = ({ value, onChangeValue, ...props }) => {
+const Amount: FC<IAmountProps> = ({
+	value,
+	onChangeValue,
+	label,
+	...props
+}) => {
 	const [stringValue, setStringValue] = useState(String(value))
 
 	useEffect(() => {
@@ -36,7 +42,7 @@ const Amount: FC<IAmountProps> = ({ value, onChangeValue, ...props }) => {
 
 	return (
 		<>
-			<div className={styles.title}>Total amount</div>
+			<div className={styles.title}>{label}</div>
 			<div className={styles.wrapper} data-testid='amount'>
 				<img src={dollar} alt='' data-testid='amount-currency-symbol-USD' />
 				<input
@@ -54,4 +60,4 @@ const Amount: FC<IAmountProps> = ({ value, onChangeValue, ...props }) => {
 	)
 }
 
-export default memo(Amount)
+export default Amount
