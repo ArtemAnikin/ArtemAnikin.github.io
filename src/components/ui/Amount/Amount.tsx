@@ -1,6 +1,10 @@
 import React, { FC, memo, useEffect, useState } from 'react'
 
-import { stringFormatter, validatePrice } from 'helpers/priceFormatter'
+import {
+	priceToNumber,
+	stringToPriceFormatter,
+	validatePrice
+} from 'helpers/priceFormatter'
 
 import dollar from 'assets/dollar-sign.svg'
 
@@ -26,8 +30,8 @@ const Amount: FC<IAmountProps> = ({ value, onChangeValue, ...props }) => {
 	const changeValue = (event: any) => {
 		const rez = event.target.value
 
-		setStringValue(stringFormatter(rez))
-		onChangeValue(+rez.replaceAll(',', ''))
+		setStringValue(stringToPriceFormatter(rez))
+		onChangeValue(priceToNumber(rez))
 	}
 
 	return (

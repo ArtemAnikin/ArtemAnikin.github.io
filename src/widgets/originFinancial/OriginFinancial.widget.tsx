@@ -4,6 +4,8 @@ import Amount from 'components/ui/Amount/Amount'
 import Button from 'components/ui/Button/Button'
 import ReachDate from 'components/ui/ReachDate/ReachDate'
 
+import TotalAmount from 'widgets/originFinancial/components/TotalAmount/TotalAmount'
+
 import houseImg from 'assets/icons/buy-a-house.svg'
 
 import styles from './OriginFinancial.module.scss'
@@ -35,6 +37,8 @@ const OriginFinancialWidget: FC = () => {
 					<ReachDate changeNumberOfMonth={changeNumberOfMonth} />
 				</div>
 			</div>
+
+			<TotalAmount currentPrice={currentPrice} numberOfMonth={month} />
 
 			<div className={styles.submit}>
 				<Button>Confirm</Button>

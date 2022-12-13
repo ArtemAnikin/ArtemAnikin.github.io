@@ -1,6 +1,23 @@
-export const stringFormatter = (price: string): string => {
+export const numberToPriceFormatter = (price: number): string => {
+	return Intl.NumberFormat('en-US', {
+		style: 'currency',
+		currency: 'USD',
+		maximumFractionDigits: 2
+	}).format(price)
+}
+
+export const priceToNumber = (string: string): number => {
+	return +string
+		.replaceAll(',', '')
+		.replace(/[a-z]/gi, '')
+		.replace(/[,/;'[\]\\_\-=+|}{":?><!@#$%^&*()]/g, '')
+		.replace(/^([^.]*\.)|\./g, '$1')
+}
+
+export const stringToPriceFormatter = (price: string): string => {
 	return price
-		.replace(/[^.\d]+/g, '')
+		.replace(/[^.\d+]/g, '')
+		.replace(/[+]/g, '')
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 		.replace(/^([^.]*\.)|\./g, '$1')
 }
@@ -14,6 +31,6 @@ export const validatePrice = (stringValue: string): string => {
 		return stringValue
 	} else {
 		const result = Number(stringValue.replaceAll(',', ''))
-		return stringFormatter(result.toFixed(2))
+		return stringToPriceFormatter(result.toFixed(2))
 	}
 }
