@@ -2,10 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import Main from 'components/pages/Main/Main'
+import Layout from 'components/ui/Layout/Layout'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
 	<React.StrictMode>
-		<Main />
+		<Layout>
+			<Main />
+		</Layout>
 	</React.StrictMode>
 )
