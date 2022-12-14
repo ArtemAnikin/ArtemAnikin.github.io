@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, memo, useEffect, useState } from 'react'
 
 import {
 	priceToNumber,
@@ -62,4 +62,4 @@ const Amount: FC<IAmountProps> = ({
 	)
 }
 
-export default Amount
+export default memo(Amount)
