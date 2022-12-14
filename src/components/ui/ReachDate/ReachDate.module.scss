@@ -23,9 +23,10 @@
     align-items: center;
     position: relative;
     justify-content: space-between;
+    outline: none;
 
     &:focus{
-      border: 1px solid mediumblue!important;
+      border: 2px solid mediumblue!important;
     }
 
 
