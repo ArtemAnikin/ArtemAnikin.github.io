@@ -36,8 +36,10 @@ const Amount: FC<IAmountProps> = ({
 	const changeValue = (event: any) => {
 		const rez = event.target.value
 
-		setStringValue(stringToPriceFormatter(rez))
-		onChangeValue(priceToNumber(rez))
+		if (/^\d+(\.?)+(\d{1,2})?$/.test(String(priceToNumber(rez)))) {
+			setStringValue(stringToPriceFormatter(rez))
+			onChangeValue(priceToNumber(rez))
+		}
 	}
 
 	return (

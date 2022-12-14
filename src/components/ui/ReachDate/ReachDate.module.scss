@@ -10,63 +10,61 @@
   margin: 0;
 
 }
-.wrapper{
-  width: 192px;
-  background: #FFFFFF;
-  border: 1px solid #E9EEF2;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  height: 56px;
-  align-items: center;
-  position: relative;
 
-  & .date{
-    height: 100%;
+  .wrapper{
+    box-sizing: border-box;
+    width: 192px;
+    background: #FFFFFF;
+    border: 1px solid #E9EEF2;
+    border-radius: 4px;
     display: flex;
-    width: 100%;
-    flex-direction: column;
+    text-decoration: none;
+    height: 56px;
     align-items: center;
-    justify-content: center;
-    padding: 0 20px;
+    position: relative;
+    justify-content: space-between;
 
-
-    & .month, .year{
-      font-family: 'Work Sans', sans-serif;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 150%;
-      text-align: center;
-      color: #1E2A32;
+    &:focus{
+      border: 1px solid mediumblue!important;
     }
 
-    & .year{
-      font-weight: 400;
-      color: #708797;
 
+    & .date {
+      &>p{
+        font-family: 'Work Sans', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 150%;
+        text-align: center;
+        color: #1E2A32;
+        margin: 0;
+      }
+      & .year{
+        font-weight: 800;
+        color: #708797;
+      }
     }
-  }
 
-  & .dateArrowLeft, .dateArrowRight{
-    content: url("../../../assets/arrow.svg");
-    position: absolute;
-    top: calc((56px - 21px) /2);
-    right: 20px;
-    width: 8px;
-    height: 21px;
+    & .leftArrowButton, .rightArrowButton{
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: transparent;
+      width: 20%;
+      border: none;
 
-    &:hover{
-      cursor: pointer;
+      &:hover{
+        border-radius: 4px;
+        cursor: pointer;
+        animation: buttonClick 400ms;
+        background-color:  rgba(112, 135, 151, 0.3490196078);
+      }
     }
-  }
 
-  & .dateArrowLeft{
-    content: url("../../../assets/arrow-left.svg");
-    left: 20px;
   }
-}
 
 @media screen and (max-width: 450px){
   .wrapper{
@@ -74,5 +72,14 @@
   }
   .month, .year {
     font-size: 14px !important;
+  }
+}
+
+@keyframes buttonClick {
+  0% {
+    background-color: transparent;
+  }
+  100%{
+    background-color:  rgba(112, 135, 151, 0.3490196078);
   }
 }

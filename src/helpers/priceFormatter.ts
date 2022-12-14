@@ -1,16 +1,22 @@
 export const numberToPriceFormatter = (price: number): string => {
-	return Intl.NumberFormat('en-US', {
+	const rez = Intl.NumberFormat('en-US', {
 		style: 'currency',
 		currency: 'USD',
-		maximumFractionDigits: 2
+		maximumFractionDigits: 2,
+		compactDisplay: 'short'
 	}).format(price)
+	if (rez.length > 14) {
+		return rez.substring(0, 14) + '...'
+	} else {
+		return rez
+	}
 }
 
 export const priceToNumber = (string: string): number => {
 	return +string
 		.replaceAll(',', '')
 		.replace(/[a-z]/gi, '')
-		.replace(/[,/;'[\]\\_\-=+|}{":?><!@#$%^&*()]/g, '')
+		.replace(/[,/;'[\]\\_\-=+|}{":?><!@#$%^&*()~`]/g, '')
 		.replace(/^([^.]*\.)|\./g, '$1')
 }
 
