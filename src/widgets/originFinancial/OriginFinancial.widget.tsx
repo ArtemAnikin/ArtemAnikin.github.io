@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useCallback, useState } from 'react'
 
 import Amount from 'components/ui/Amount/Amount'
 import Button from 'components/ui/Button/Button'
@@ -14,9 +14,12 @@ const OriginFinancialWidget: FC = () => {
 	const [currentPrice, setCurrentPrice] = useState(10)
 	const [month, setMonth] = useState(0)
 
-	const changeNumberOfMonth = (value: number) => {
-		setMonth(month + value)
-	}
+	const changeNumberOfMonth = useCallback(
+		(value: number) => {
+			setMonth(month + value)
+		},
+		[month]
+	)
 
 	return (
 		<div className={styles.wrapper}>

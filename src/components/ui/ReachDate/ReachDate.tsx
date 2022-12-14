@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
+import React, { FC, memo, useEffect, useRef, useState } from 'react'
 
 import { getCurrentDate } from 'helpers/getCurrentDate'
 import { monthFormatter } from 'helpers/monthFormatter'
@@ -72,4 +72,4 @@ const ReachDate: FC<IReachDateProps> = ({ changeNumberOfMonth, label }) => {
 	)
 }
 
-export default ReachDate
+export default memo(ReachDate)
