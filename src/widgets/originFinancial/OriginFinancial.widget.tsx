@@ -48,7 +48,11 @@ const OriginFinancialWidget: FC = () => {
 				</div>
 			</div>
 
-			<TotalAmount currentPrice={currentPrice} numberOfMonth={month} />
+			<TotalAmount
+				label='Monthly amount'
+				currentPrice={currentPrice}
+				numberOfMonth={month}
+			/>
 
 			<div className={styles.submit}>
 				<Button>Confirm</Button>

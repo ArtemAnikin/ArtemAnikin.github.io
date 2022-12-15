@@ -66,7 +66,9 @@ const ReachDate: FC<IReachDateProps> = ({ changeNumberOfMonth, label }) => {
 
 	return (
 		<>
-			<div className={styles.title}>{label}</div>
+			<div className={styles.title} data-testid='label'>
+				{label}
+			</div>
 			<div
 				className={styles.wrapper}
 				ref={wrapperRef}
@@ -80,7 +82,7 @@ const ReachDate: FC<IReachDateProps> = ({ changeNumberOfMonth, label }) => {
 				>
 					<img src={leftArrow} alt='left arrow' />
 				</button>
-				<div className={styles.date}>
+				<div className={styles.date} data-testid='date'>
 					<p>{monthFormatter(month)}</p>
 					<p className={styles.year}>{year}</p>
 				</div>

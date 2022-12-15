@@ -6,12 +6,17 @@ import { numberToPriceFormatter } from 'helpers/priceFormatter'
 
 import styles from './TotalAmount.module.scss'
 
-interface ITotalProps {
+export interface ITotalAmountProps {
+	label: string
 	currentPrice: number
 	numberOfMonth: number
 }
 
-const TotalAmount: FC<ITotalProps> = ({ currentPrice, numberOfMonth }) => {
+const TotalAmount: FC<ITotalAmountProps> = ({
+	currentPrice,
+	numberOfMonth,
+	label
+}) => {
 	const { currentMonth, currentYear } = getCurrentDate()
 
 	const month = (currentMonth + numberOfMonth) % 12
@@ -21,14 +26,18 @@ const TotalAmount: FC<ITotalProps> = ({ currentPrice, numberOfMonth }) => {
 	const price = currentPrice / (numberOfMonth + 1)
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={styles.wrapper} data-testid='TotalAmount'>
 			<div className={styles.header}>
-				<div className={styles.title}>Monthly amount</div>
-				<div className={styles.price}>{numberToPriceFormatter(price)}</div>
+				<div className={styles.title} data-testid='label'>
+					{label}
+				</div>
+				<div className={styles.price} data-testid='priceFormat'>
+					{numberToPriceFormatter(price)}
+				</div>
 			</div>
-			<div className={styles.info}>
-				You’re planning <strong> {numberOfMonth} monthly deposits </strong> to
-				reach your
+			<div className={styles.info} data-testid='info'>
+				You’re planning <strong> {numberOfMonth} monthly deposits </strong> to reach
+				your
 				<strong> {numberToPriceFormatter(currentPrice)} </strong> goal by
 				<strong>
 					{' '}
