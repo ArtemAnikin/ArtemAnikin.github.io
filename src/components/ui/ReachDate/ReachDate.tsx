@@ -26,7 +26,6 @@ const ReachDate: FC<IReachDateProps> = ({ changeNumberOfMonth, label }) => {
 
 	useEffect(() => {
 		const refWrapper = wrapperRef.current
-		refWrapper?.focus()
 		const handlerArrows = (event: any) => {
 			switch (event.key) {
 				case 'ArrowRight':

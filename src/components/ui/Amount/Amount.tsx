@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState } from 'react'
+import React, { FC, memo, useState } from 'react'
 
 import {
 	priceToNumber,
@@ -23,20 +23,18 @@ const Amount: FC<IAmountProps> = ({
 	label,
 	...props
 }) => {
-	const [stringValue, setStringValue] = useState(String(value))
-
-	useEffect(() => {
-		onBlur()
-	}, [])
+	const price = validatePrice(String(value))
+	const [stringValue, setStringValue] = useState(price)
 
 	const onBlur = (): void => {
 		setStringValue(validatePrice(stringValue))
 	}
 
 	const changeValue = (event: any): void => {
-		const rez = event.target.value
+		const rez = event.target.value.replaceAll(',', '')
 
-		if (/^\d+(\.?)+(\d{1,2})?$/.test(String(priceToNumber(rez)))) {
+		//only 2 numbers after '.'
+		if (/^(\d?)+(\.?)+(\d{1,2})?$/.test(rez)) {
 			setStringValue(stringToPriceFormatter(rez))
 			onChangeValue(priceToNumber(rez))
 		}
