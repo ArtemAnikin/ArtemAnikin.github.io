@@ -10,8 +10,7 @@ import {
 
 import styles from './Amount.module.scss'
 
-export interface IAmountProps
-	extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface IAmountProps {
 	value: number
 	label: string
 	currentCurrency: ICurrency
@@ -22,8 +21,7 @@ const Amount: FC<IAmountProps> = ({
 	currentCurrency,
 	value,
 	onChangeValue,
-	label,
-	...props
+	label
 }) => {
 	const price = validatePrice(String(value))
 	const [stringValue, setStringValue] = useState(price)
@@ -55,7 +53,6 @@ const Amount: FC<IAmountProps> = ({
 				<input
 					onBlur={onBlur}
 					className={styles.input}
-					{...props}
 					type='text'
 					data-testid='amount-input'
 					placeholder='0.00'

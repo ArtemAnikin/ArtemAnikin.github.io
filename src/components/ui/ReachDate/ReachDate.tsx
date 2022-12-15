@@ -8,8 +8,7 @@ import rightArrow from 'assets/arrow-right.svg'
 
 import styles from './ReachDate.module.scss'
 
-export interface IReachDateProps
-	extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface IReachDateProps {
 	label: string
 	changeNumberOfMonth: (month: number) => void
 }
