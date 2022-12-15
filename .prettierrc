@@ -1,6 +1,6 @@
 {
   "trailingComma": "none",
-  "tabWidth": 2,
+  "tabWidth": 1,
   "useTabs": true,
   "semi": false,
   "singleQuote": true,
@@ -11,14 +11,9 @@
     "^components/(.*)$",
     "^pages/(.*)$",
     "^ui/(.*)$",
-    "^hooks/(.*)$",
     "^widgets/(.*)$",
     "^helpers/(.*)$",
-    "^services/(.*)$",
     "^assets/(.*)$",
-    "^utils/(.*)$",
-    "^config/(.*)$",
-    "^store/(.*)$",
     "^../(.*)",
     "^./(.*)",
     "(.scss)$"
