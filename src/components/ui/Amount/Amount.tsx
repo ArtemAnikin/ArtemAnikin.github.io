@@ -29,11 +29,11 @@ const Amount: FC<IAmountProps> = ({
 		onBlur()
 	}, [])
 
-	const onBlur = () => {
+	const onBlur = (): void => {
 		setStringValue(validatePrice(stringValue))
 	}
 
-	const changeValue = (event: any) => {
+	const changeValue = (event: any): void => {
 		const rez = event.target.value
 
 		if (/^\d+(\.?)+(\d{1,2})?$/.test(String(priceToNumber(rez)))) {

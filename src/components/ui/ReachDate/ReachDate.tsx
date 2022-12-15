@@ -25,7 +25,8 @@ const ReachDate: FC<IReachDateProps> = ({ changeNumberOfMonth, label }) => {
 	const rightArrowBtn = useRef<HTMLButtonElement>(null)
 
 	useEffect(() => {
-		wrapperRef.current?.focus()
+		const refWrapper = wrapperRef.current
+		refWrapper?.focus()
 		const handlerArrows = (event: any) => {
 			switch (event.key) {
 				case 'ArrowRight':
@@ -37,24 +38,24 @@ const ReachDate: FC<IReachDateProps> = ({ changeNumberOfMonth, label }) => {
 			}
 		}
 
-		wrapperRef.current?.addEventListener('keydown', handlerArrows)
+		refWrapper?.addEventListener('keydown', handlerArrows)
 
 		return () => {
-			wrapperRef.current?.removeEventListener('keydown', handlerArrows)
+			refWrapper?.removeEventListener('keydown', handlerArrows)
 		}
 	}, [month, wrapperRef])
 
-	const handleMonthInc = () => {
+	const handleMonthInc = (): void => {
 		changeMonth(12, 1)
 	}
 
-	const handleMonthDec = () => {
+	const handleMonthDec = (): void => {
 		if (currentYear !== year || currentMonth !== month) {
 			changeMonth(1, -1)
 		}
 	}
 
-	const changeMonth = (condition: number, value: number) => {
+	const changeMonth = (condition: number, value: number): void => {
 		if (month === condition) {
 			setYear(year + value)
 			setMonth(condition === 12 ? 1 : 12)
