@@ -5,11 +5,14 @@ import TotalAmount, {
 	ITotalAmountProps
 } from 'widgets/originFinancial/components/TotalAmount/TotalAmount'
 
+import { CURRENCY_ENUM, currencyInfo } from 'enums/currencyEnum'
+
 import { getCurrentDate } from 'helpers/getCurrentDate'
 import { monthFormatter } from 'helpers/monthFormatter'
 
 describe('originFinancial - > TotalAmount', () => {
 	let props: ITotalAmountProps = {
+		currentCurrency: currencyInfo[CURRENCY_ENUM.USD],
 		label: 'Some label',
 		currentPrice: 0,
 		numberOfMonth: 0
@@ -18,6 +21,7 @@ describe('originFinancial - > TotalAmount', () => {
 	const renderComponent = () =>
 		render(
 			<TotalAmount
+				currentCurrency={props.currentCurrency}
 				label={props.label}
 				currentPrice={props.currentPrice}
 				numberOfMonth={props.numberOfMonth}
@@ -32,6 +36,12 @@ describe('originFinancial - > TotalAmount', () => {
 	it('should render provided label in header', async () => {
 		const view = await renderComponent()
 		expect(view.getByText('Some label')).toBeInTheDocument()
+	})
+
+	it('should render provided currency symbol in header', async () => {
+		props.currentCurrency = currencyInfo[CURRENCY_ENUM.EUR]
+		const view = await renderComponent()
+		expect(view.getByTestId('priceFormat')).toHaveTextContent('€0.00')
 	})
 
 	it('should render provided value as number in header', async () => {
@@ -61,10 +71,11 @@ describe('originFinancial - > TotalAmount', () => {
 		)
 	})
 
-	it('should render current price as string with decimal in info box', async () => {
+	it('should render current price as string with decimal and current currency in info box', async () => {
 		props.currentPrice = 10
+		props.currentCurrency = currencyInfo[CURRENCY_ENUM.EUR]
 		const view = await renderComponent()
-		expect(view.getByTestId('info')).toHaveTextContent('your $10.00 goal')
+		expect(view.getByTestId('info')).toHaveTextContent('your €10.00 goal')
 	})
 
 	it('should render month and year in info box', async () => {

@@ -12,6 +12,7 @@
     "^pages/(.*)$",
     "^ui/(.*)$",
     "^widgets/(.*)$",
+    "^enums/(.*)$",
     "^helpers/(.*)$",
     "^assets/(.*)$",
     "^styles/(.*)$",

@@ -1,12 +1,12 @@
 import React, { FC, memo, useState } from 'react'
 
+import { ICurrency } from 'enums/currencyEnum'
+
 import {
 	priceToNumber,
 	stringToPriceFormatter,
 	validatePrice
 } from 'helpers/priceFormatter'
-
-import dollar from 'assets/dollar-sign.svg'
 
 import styles from './Amount.module.scss'
 
@@ -14,10 +14,12 @@ export interface IAmountProps
 	extends React.InputHTMLAttributes<HTMLInputElement> {
 	value: number
 	label: string
+	currentCurrency: ICurrency
 	onChangeValue: (value: number) => void
 }
 
 const Amount: FC<IAmountProps> = ({
+	currentCurrency,
 	value,
 	onChangeValue,
 	label,
@@ -25,6 +27,7 @@ const Amount: FC<IAmountProps> = ({
 }) => {
 	const price = validatePrice(String(value))
 	const [stringValue, setStringValue] = useState(price)
+	//const currency = currencyInfo.
 
 	const onBlur = (): void => {
 		setStringValue(validatePrice(stringValue))
@@ -44,7 +47,11 @@ const Amount: FC<IAmountProps> = ({
 		<>
 			<div className={styles.title}>{label}</div>
 			<div className={styles.wrapper} data-testid='amount'>
-				<img src={dollar} alt='' data-testid='amount-currency-symbol-USD' />
+				<img
+					src={currentCurrency.image}
+					alt=''
+					data-testid='amount-currency-symbol'
+				/>
 				<input
 					onBlur={onBlur}
 					className={styles.input}
